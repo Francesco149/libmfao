@@ -106,7 +106,7 @@ void mfao_clear_errno(mfao_t m);
 #define pp_stringify(x) pp_stringify_(x)
 #define MFAO_VERSION_MAJOR 0
 #define MFAO_VERSION_MINOR 0
-#define MFAO_VERSION_PATCH 1
+#define MFAO_VERSION_PATCH 2
 #define MFAO_VERSION_STR \
   pp_stringify(MFAO_VERSION_MAJOR) "." \
   pp_stringify(MFAO_VERSION_MINOR) "." \
@@ -616,9 +616,7 @@ char* mfao_strerror(int err) {
   int i;
   char* p = error_strings;
   for (i = 0; i < sizeof(error_codes); ++i) {
-    if (err == error_codes[i]) {
-      break;
-    }
+    if (err == error_codes[i]) break;
     for (; *p; ++p);
     ++p;
   }
